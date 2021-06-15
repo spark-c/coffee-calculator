@@ -19,13 +19,21 @@ const calcBrewedCoffee = (water, dryCoffee) => {
 
 
 const Calculator = ({ params }) => {
-    const values = params.map(param => {
-        return <p key={param.label}>{param.label}: {param.value}</p>;
+    
+    
+    
+    const renderedValues = params.map(param => {
+        return <p key={param.label}>{param.label}: {param.value} {param.value? param.unit:null}</p>;
     });
 
     return (
-        <div className="calculator">
-            {values}
+        <div className="calculator bar">
+            <div className="results">
+                {renderedValues}
+            </div>
+            <div className="needed">
+                Needed
+            </div>
         </div>
     );
 };
