@@ -6,7 +6,7 @@ const VarBar = ({ params, onParamUpdate }) => {
     
 
     const tabs = params.map(param => {
-        return <VarItem label={param.label} defaultSelected={param.defaultSelected} key={param.label} onParamUpdate={onParamUpdate} />
+        return <VarItem param={param} key={param.label} onParamUpdate={onParamUpdate} />
     })
 
     return (

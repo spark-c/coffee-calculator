@@ -23,3 +23,27 @@
     display: flex;
     flex-direction: column;
 }
+
+.var-item-label > label {
+    margin-right: 5px;
+}
+
+.var-item-label > button {
+    font-size: .8em;
+    border-radius: 5px;
+}
+
+.input-wrapper > input {
+    width: 40%;
+    margin-right: 10px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+ }

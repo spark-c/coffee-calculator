@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
 
 
-const VarItem = ({ label, defaultSelected, onParamUpdate }) => {
-    const [value, setValue] = useState(0);
-    const [selected, setSelected] = useState(defaultSelected);
+const VarItem = ({ param, onParamUpdate }) => {
+    const [value, setValue] = useState(param.value);
+    const [selected, setSelected] = useState(param.defaultSelected);
 
     const onValueChange = (newValue) => {
-        onParamUpdate(label, newValue)
+        onParamUpdate(param.label, newValue)
         setValue(newValue)
     };
+
+    const inputDiv = selected? 
+        <div className="input-wrapper">
+            <input type='number' value={value} onChange={(e) => onValueChange(e.target.value)} /><span className="unit">{param.unit}</span>
+        </div> :
+        null
 
     return (
         <div className="var-item">
             <div className="var-item-label">
-                <label>{label}</label>
+                <label>{param.label}</label>
                 <button onClick={() => setSelected(!selected)}>{selected? "del":"add"}</button>
             </div>
-            {selected? <input type='number' value={value} onChange={(e) => onValueChange(e.target.value)} />:null}
+            {inputDiv}
         </div>
     );
 };
