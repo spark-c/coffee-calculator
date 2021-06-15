@@ -3,10 +3,10 @@ import VarItem from './VarItem';
 
 
 const VarBar = ({ params, onParamUpdate }) => {
-    
 
     const tabs = params.map(param => {
-        return <VarItem param={param} key={param.label} onParamUpdate={onParamUpdate} />
+        let passedParam = Object.entries(param)[0][1];
+        return <VarItem param={passedParam} key={passedParam.label} onParamUpdate={onParamUpdate} />
     })
 
     return (

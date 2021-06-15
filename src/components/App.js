@@ -13,29 +13,37 @@ const instructionsContent =
 
 const App = () => {
     const [params, setParams] = useState([
-        {
-            label: "Brew Ratio",
-            defaultSelected: true,
-            unit: "g/L",
-            value: 60
+        {brewRatio:
+            {
+                label: "Brew Ratio",
+                defaultSelected: true,
+                unit: "g/L",
+                value: 60
+            }
         },
-        {
-            label: "Water Amount",
-            defaultSelected: false,
-            unit: "mL",
-            value: undefined
+        {water:
+            {
+                label: "Water Amount",
+                defaultSelected: false,
+                unit: "mL",
+                value: undefined
+            }
         },
-        {
-            label: "Dry Coffee",
-            defaultSelected: false,
-            unit: "g",
-            value: undefined
+        {dryCoffee:
+            {
+                label: "Dry Coffee",
+                defaultSelected: false,
+                unit: "g",
+                value: undefined
+            }
         },
-        {
-            label: "Brewed Coffee",
-            defaultSelected: true,
-            unit: "mL",
-            value: 250
+        {brewedCoffee:
+            {
+                label: "Brewed Coffee",
+                defaultSelected: true,
+                unit: "mL",
+                value: 250
+            }
         },
     ]);
 

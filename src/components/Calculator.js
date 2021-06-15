@@ -23,7 +23,7 @@ const Calculator = ({ params }) => {
     
     
     const renderedValues = params.map(param => {
-        return <p key={param.label}>{param.label}: {param.value} {param.value? param.unit:null}</p>;
+        return param.value? <p key={param.label}>{param.label}: {param.value} {param.unit}</p>:null;
     });
 
     return (
