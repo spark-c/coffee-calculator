@@ -4,16 +4,19 @@
     align-items: center;
 }
 
+.bar {
+    width: 60vw;
+    padding: 0 5vw 0 5vw;
+    margin-top: 5vh;
+    min-height: 10vh;
+    border: 2px solid red;
+    border-radius: 5px;
+}
+
 .var-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 60vw;
-    padding: 0 5vw 0 5vw;
-    margin-top: 5vh;
-    height: 10vh;
-    border: 2px solid red;
-    border-radius: 5px;
 }
 
 .var-item {
