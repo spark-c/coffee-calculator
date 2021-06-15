@@ -12,7 +12,6 @@ const instructionsContent =
     
 
 const App = () => {
-    console.log('rendering app!');
     const [params, setParams] = useState([
         {
             label: "Brew Ratio",
@@ -44,11 +43,8 @@ const App = () => {
         let tempParams = params.map(param => {
             return {...param}
         });
-        console.log("tempParams", tempParams)
         for (let param of tempParams) {
-            console.log(param.label, "vs", label)
             if (param.label == label) {
-                console.log("match found")
                 param.value = newValue;
             }
         }
