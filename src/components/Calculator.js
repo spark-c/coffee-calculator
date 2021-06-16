@@ -1,5 +1,7 @@
 import React from 'react';
 
+// some calculation references @ https://www.translatorscafe.com/unit-converter/en-US/calculator/coffee-brewing/
+
 // brewRatio = dry / water
 const calcBrewRatio = (dryCoffee, water) => {
     return dryCoffee / (water/1000);
@@ -18,12 +20,19 @@ const calcBrewedCoffee = (water, dryCoffee) => {
 };
 
 
-const Calculator = ({ params }) => {
+const Calculator = ({ brewRatio, water, dryCoffee, brewedCoffee }) => {
     
+    const calculatedValues = [
+        {brewRatio: dryCoffee&&water? calcBrewRatio(dryCoffee.value, water.value):1},
+        {water: dryCoffee&&brewRatio? calcWater(dryCoffee.value,brewRatio.value):1},
+        {dryCoffee: brewRatio&&water? calcDryCoffee(brewRatio.value, water.value): 1},
+        {brewedCoffee: water&&dryCoffee? calcBrewedCoffee(water.value, dryCoffee.value):1}
+    ];
     
-    
-    const renderedValues = params.map(param => {
-        return param.value? <p key={param.label}>{param.label}: {param.value} {param.unit}</p>:null;
+    const renderedValues = calculatedValues.map(param => {
+        let thing = Object.entries(param);
+        console.log(thing);
+        return thing[0]? <p key={thing}>{thing}: {thing} {thing}</p>:null;
     });
 
     return (
