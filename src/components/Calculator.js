@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // some calculation references @ https://www.translatorscafe.com/unit-converter/en-US/calculator/coffee-brewing/
 
@@ -27,8 +27,7 @@ const calcBrewedCoffee = (water, dryCoffee) => {
 const Calculator = ({ params }) => {
     const [water, dryCoffee, brewedCoffee, brewRatio] = [params.water, params.dryCoffee, params.brewedCoffee, params.brewRatio];
 
-    
-    
+
     const calculatedValues = [
         {"Water": brewRatio&&brewedCoffee? calcWater(brewRatio.value, brewedCoffee.value):null},
         {"Dry Coffee": brewRatio&&water? calcDryCoffee(brewRatio.value, water.value): null},
@@ -44,7 +43,6 @@ const Calculator = ({ params }) => {
     return (
         <div className="calculator bar">
             <div className="results">
-                {/* {calculatedValues[0]["water"]} */}
                 {renderedValues}
             </div>
             <div className="needed">

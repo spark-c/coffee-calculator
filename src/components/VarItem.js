@@ -6,8 +6,13 @@ const VarItem = ({ param, onParamUpdate }) => {
     const [selected, setSelected] = useState(param.defaultSelected);
 
     const onValueChange = (newValue) => {
-        onParamUpdate(param.label, newValue)
-        setValue(newValue)
+        onParamUpdate(param.label, newValue);
+        setValue(newValue);
+    };
+
+    const onSelectedChange = (newValue) => {
+        onParamUpdate(param.label, newValue);
+        setSelected(newValue);
     };
 
     const inputDiv = selected? 
@@ -20,7 +25,7 @@ const VarItem = ({ param, onParamUpdate }) => {
         <div className="var-item">
             <div className="var-item-label">
                 <label>{param.label}</label>
-                <button onClick={() => setSelected(!selected)}>{selected? "del":"add"}</button>
+                <button onClick={() => onSelectedChange(!selected)}>{selected? "del":"add"}</button>
             </div>
             {inputDiv}
         </div>
