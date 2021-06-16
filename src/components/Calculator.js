@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // some calculation references @ https://www.translatorscafe.com/unit-converter/en-US/calculator/coffee-brewing/
 
@@ -6,38 +6,45 @@ import React from 'react';
 const calcBrewRatio = (dryCoffee, water) => {
     return dryCoffee / (water/1000);
 };
-// water = dry / brewRatio
-const calcWater = (dryCoffee, brewRatio) => {
-    return dryCoffee / brewRatio;
+
+// // water = dry / brewRatio
+const calcWater = (brewRatio, brewedCoffee) => {
+    let trueBrewRatio = brewRatio / 1000;
+    return brewedCoffee / (1 + (.2*trueBrewRatio - trueBrewRatio - 1.2*trueBrewRatio));
 };
+
 // dry = brewRatio * water
 const calcDryCoffee = (brewRatio, water) => {
     return brewRatio * (water/1000);
 };
+
 // brewedCoffee = water - 2(dry)
 const calcBrewedCoffee = (water, dryCoffee) => {
-    return ((water/1000) - 2(dryCoffee));  
+    return ((water/1000) - 2*dryCoffee);  
 };
 
 
-const Calculator = ({ brewRatio, water, dryCoffee, brewedCoffee }) => {
+const Calculator = ({ params }) => {
+    const [water, dryCoffee, brewedCoffee, brewRatio] = [params.water, params.dryCoffee, params.brewedCoffee, params.brewRatio];
+
+    
     
     const calculatedValues = [
-        {brewRatio: dryCoffee&&water? calcBrewRatio(dryCoffee.value, water.value):1},
-        {water: dryCoffee&&brewRatio? calcWater(dryCoffee.value,brewRatio.value):1},
-        {dryCoffee: brewRatio&&water? calcDryCoffee(brewRatio.value, water.value): 1},
-        {brewedCoffee: water&&dryCoffee? calcBrewedCoffee(water.value, dryCoffee.value):1}
+        {"Water": brewRatio&&brewedCoffee? calcWater(brewRatio.value, brewedCoffee.value):null},
+        {"Dry Coffee": brewRatio&&water? calcDryCoffee(brewRatio.value, water.value): null},
+        {"Brewed Coffee": water&&dryCoffee? calcBrewedCoffee(water.value, dryCoffee.value):null},
+        {"Brew Ratio": dryCoffee&&water? calcBrewRatio(dryCoffee.value, water.value):null},
     ];
     
     const renderedValues = calculatedValues.map(param => {
-        let thing = Object.entries(param);
-        console.log(thing);
-        return thing[0]? <p key={thing}>{thing}: {thing} {thing}</p>:null;
+        let [[itemName, itemValue]] = Object.entries(param);
+        return itemValue? <p key={itemName}>{itemName}: {itemValue}</p>:null;
     });
 
     return (
         <div className="calculator bar">
             <div className="results">
+                {/* {calculatedValues[0]["water"]} */}
                 {renderedValues}
             </div>
             <div className="needed">

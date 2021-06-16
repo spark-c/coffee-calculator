@@ -12,48 +12,43 @@ const instructionsContent =
     
 
 const App = () => {
-    const [params, setParams] = useState([
-        {brewRatio:
+    const [params, setParams] = useState({
+        brewRatio:
             {
                 label: "Brew Ratio",
                 defaultSelected: true,
                 unit: "g/L",
                 value: 60
-            }
-        },
-        {water:
+            },
+        water:
             {
                 label: "Water Amount",
                 defaultSelected: false,
                 unit: "mL",
                 value: undefined
-            }
-        },
-        {dryCoffee:
+            },
+        dryCoffee:
             {
                 label: "Dry Coffee",
                 defaultSelected: false,
                 unit: "g",
                 value: undefined
-            }
-        },
-        {brewedCoffee:
+            },
+        brewedCoffee:
             {
                 label: "Brewed Coffee",
                 defaultSelected: true,
                 unit: "mL",
                 value: 250
-            }
-        },
-    ]);
+            },
+        });
+
 
     const onParamUpdate = (label, newValue) => {
-        let tempParams = params.map(param => {
-            return {...param}
-        });
-        for (let param of tempParams) {
-            if (param.label == label) {
-                param.value = newValue;
+        let tempParams = {...params};
+        for (let param in tempParams) {
+            if (tempParams[param].label == label) {
+                tempParams[param].value = newValue;
             }
         }
         setParams(tempParams);
