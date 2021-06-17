@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
 
 
-const VarItem = ({ param, onParamUpdate }) => {
+const VarItem = ({ param, onTargetUpdate, onInputUpdate, drawInput }) => {
     const [value, setValue] = useState(param.value);
-    const [selected, setSelected] = useState(param.defaultSelected);
 
-    const onValueChange = (newValue) => {
-        onParamUpdate(param.label, newValue);
+    const onInputChange = (newValue) => {
+        onInputUpdate(param.label, newValue);
         setValue(newValue);
     };
 
-    const onSelectedChange = (newValue) => {
-        onParamUpdate(param.label, newValue);
-        setSelected(newValue);
+    const onButtonClick = () => {
+        onTargetUpdate(param);
     };
 
-    const inputDiv = selected? 
+    const inputDiv = drawInput? 
         <div className="input-wrapper">
-            <input type='number' value={value} onChange={(e) => onValueChange(e.target.value)} /><span className="unit">{param.unit}</span>
+            <input type='number' value={value} onChange={(e) => onInputChange(e.target.value)} /><span className="unit">{param.unit}</span>
         </div> :
         null
 
@@ -25,7 +23,7 @@ const VarItem = ({ param, onParamUpdate }) => {
         <div className="var-item">
             <div className="var-item-label">
                 <label>{param.label}</label>
-                <button onClick={() => onSelectedChange(!selected)}>{selected? "del":"add"}</button>
+                {drawInput? null:<button onClick={onButtonClick}>select</button>}
             </div>
             {inputDiv}
         </div>

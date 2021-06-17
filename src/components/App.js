@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import Selector from './Selector';
 import VarBar from './VarBar';
 import TextBar from './TextBar';
-import Calculator from './Calculator';
+// import Calculator from './Calculator';
 import './stylesheet.css';
 
 
@@ -16,35 +17,33 @@ const App = () => {
         brewRatio:
             {
                 label: "Brew Ratio",
-                defaultSelected: true,
                 unit: "g/L",
                 value: 60
             },
         water:
             {
                 label: "Water Amount",
-                defaultSelected: false,
                 unit: "mL",
                 value: undefined
             },
         dryCoffee:
             {
                 label: "Dry Coffee",
-                defaultSelected: false,
                 unit: "g",
                 value: undefined
             },
         brewedCoffee:
             {
                 label: "Brewed Coffee",
-                defaultSelected: true,
                 unit: "mL",
                 value: 250
             },
         });
 
+        const [targetParam, setTargetParam] = useState(params.water);
 
-    const onParamUpdate = (label, newValue) => {
+
+    const onInputUpdate = (label, newValue) => {
         let tempParams = {...params};
         for (let param in tempParams) {
             if (tempParams[param].label == label) {
@@ -57,8 +56,10 @@ const App = () => {
     return (
         <div className="container">
             <TextBar label="Instructions" content={instructionsContent} />
-            <VarBar params={params} onParamUpdate={onParamUpdate} />
-            <Calculator params={params} />
+            <Selector options={params} onTargetUpdate={setTargetParam} />
+            <div>Target: {targetParam.label}</div>
+            <VarBar params={params} onInputUpdate={onInputUpdate} />
+            {/* <Calculator params={params} /> */}
         </div>
     );
 };
