@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Selector from './Selector';
 import VarBar from './VarBar';
 import TextBar from './TextBar';
-// import Calculator from './Calculator';
+import Calculator from './Calculator';
 import './stylesheet.css';
 
 
@@ -46,7 +46,7 @@ const App = () => {
             },
         });
 
-        const [targetParam, setTargetParam] = useState(params.water);
+        const [targetParam, setTargetParam] = useState(params.standard);
 
 
     const onInputUpdate = (label, newValue) => {
@@ -65,7 +65,7 @@ const App = () => {
             <Selector options={params} onTargetUpdate={setTargetParam} />
             <div>Target: {targetParam.label}</div>
             <VarBar params={params} onInputUpdate={onInputUpdate} target={targetParam} />
-            {/* <Calculator params={params} /> */}
+            <Calculator target={targetParam} params={params} />
         </div>
     );
 };
