@@ -38,6 +38,12 @@ const App = () => {
                 unit: "mL",
                 value: 250
             },
+        standard:
+            {
+                label: "Standard",
+                unit: "n/a",
+                value: undefined,
+            },
         });
 
         const [targetParam, setTargetParam] = useState(params.water);
@@ -58,7 +64,7 @@ const App = () => {
             <TextBar label="Instructions" content={instructionsContent} />
             <Selector options={params} onTargetUpdate={setTargetParam} />
             <div>Target: {targetParam.label}</div>
-            <VarBar params={params} onInputUpdate={onInputUpdate} />
+            <VarBar params={params} onInputUpdate={onInputUpdate} target={targetParam} />
             {/* <Calculator params={params} /> */}
         </div>
     );

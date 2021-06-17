@@ -28,6 +28,10 @@
     align-items: center;
 }
 
+.input-bar {
+    justify-content: center;
+}
+
 .var-item {
     display: flex;
     flex-direction: column;

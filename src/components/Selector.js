@@ -9,7 +9,7 @@ const Selector = ({ options, onTargetUpdate }) => {
     });
 
     return (
-        <div className="selector bar var-bar">
+        <div className="bar var-bar selector">
             {buttons}
         </div>
     );
