@@ -8,7 +8,7 @@ import './stylesheet.css';
 
 const instructionsContent = 
     "Welcome to Coffee Calculator! " +
-    "Enter your known variables and the calculator will present information as it becomes available."
+    "Select the parameter you'd like to calculate, and enter the necessary variables."
 
     
 

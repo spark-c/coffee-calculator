@@ -31,7 +31,7 @@ const Calculator = ({ target, params }) => {
 
     // brewedCoffee = water - 2(dry)
     const calcBrewedCoffee = () => {
-        brewedCoffee.value = ((water.value/1000) - 2*dryCoffee.value);
+        brewedCoffee.value = ((water.value) - 2*dryCoffee.value);
         return [brewedCoffee];  
     };
     // standard
