@@ -4,22 +4,20 @@ import React, { useState, useEffect } from 'react';
 
 
 
-
 const Calculator = ({ target, params }) => {
     const [water, dryCoffee, brewedCoffee, brewRatio] = [params.water, params.dryCoffee, params.brewedCoffee, params.brewRatio];
     const message = [{label: "Please provide inputs!", value: null}];
 
 
+    // BE SURE TO UPDATE VARS IN VARBAR to ensure the correct vars are presented for inputs
     // brewRatio = dry / water
     const calcBrewRatio = () => {
         brewRatio.value = dryCoffee.value / (water.value/1000);
         return [brewRatio];
     };
 
-    // water = dry / brewRatio
     const calcWater = () => {
-        let trueBrewRatio = brewRatio.value / 1000;
-        water.value = brewedCoffee.value / (1 + (.2*trueBrewRatio - trueBrewRatio - 1.2*trueBrewRatio))
+        water.value = 1000 * (1 / (brewRatio.value / dryCoffee.value));
         return [water];
     };
 
@@ -40,6 +38,13 @@ const Calculator = ({ target, params }) => {
         dryCoffee.value = calcDryCoffee()[0].value;
         return [water, dryCoffee];
     };
+
+    // // water = dry / brewRatio
+    // const calcWater = () => {
+    //     let trueBrewRatio = brewRatio.value / 1000;
+    //     water.value = brewedCoffee.value / (1 + (.2*trueBrewRatio - trueBrewRatio - 1.2*trueBrewRatio))
+    //     return [water];
+    // };
 
 
 

@@ -11,7 +11,7 @@ const VarBar = ({ params, target, onInputUpdate }) => {
             renderedInputs = [params.brewRatio, params.brewedCoffee];
             break;
         case params.water:
-            renderedInputs = [params.brewRatio, params.brewedCoffee];
+            renderedInputs = [params.brewRatio, params.dryCoffee];
             break;
         case params.dryCoffee:
             renderedInputs = [params.brewRatio, params.water];

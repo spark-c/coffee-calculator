@@ -17,7 +17,7 @@ const VarItem = ({ param, onTargetUpdate, onInputUpdate, drawInput }) => {
         <div className="input-wrapper">
             <input type='number' value={value} onChange={(e) => onInputChange(e.target.value)} /><span className="unit">{param.unit}</span>
         </div> :
-        null
+        null;
 
     return (
         <div className="var-item">
