@@ -14,6 +14,12 @@ const instructionsContent =
 
 const App = () => {
     const [params, setParams] = useState({
+        standard:
+            {
+                label: "Standard",
+                unit: "n/a",
+                value: undefined,
+            },
         brewRatio:
             {
                 label: "Brew Ratio",
@@ -37,12 +43,6 @@ const App = () => {
                 label: "Brewed Coffee",
                 unit: "mL",
                 value: 250
-            },
-        standard:
-            {
-                label: "Standard",
-                unit: "n/a",
-                value: undefined,
             },
         });
 

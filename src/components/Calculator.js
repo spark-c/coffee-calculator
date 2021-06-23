@@ -21,6 +21,13 @@ const Calculator = ({ target, params }) => {
         return [water];
     };
 
+    // water = dry / brewRatio
+    const calcWaterFromRatio = () => {
+        let trueBrewRatio = brewRatio.value / 1000;
+        water.value = brewedCoffee.value / (1 + (.2*trueBrewRatio - trueBrewRatio - 1.2*trueBrewRatio))
+        return [water];
+    };
+
     // dry = brewRatio * water
     const calcDryCoffee = () => {
         dryCoffee.value = brewRatio.value * (water.value/1000);
@@ -32,20 +39,13 @@ const Calculator = ({ target, params }) => {
         brewedCoffee.value = ((water.value) - 2*dryCoffee.value);
         return [brewedCoffee];  
     };
+
     // standard
     const calcStandard = () => {
-        water.value = calcWater()[0].value;
+        water.value = calcWaterFromRatio()[0].value;
         dryCoffee.value = calcDryCoffee()[0].value;
         return [water, dryCoffee];
     };
-
-    // // water = dry / brewRatio
-    // const calcWater = () => {
-    //     let trueBrewRatio = brewRatio.value / 1000;
-    //     water.value = brewedCoffee.value / (1 + (.2*trueBrewRatio - trueBrewRatio - 1.2*trueBrewRatio))
-    //     return [water];
-    // };
-
 
 
     let renderedValue = null;
