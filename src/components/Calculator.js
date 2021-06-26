@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 
 const Calculator = ({ target, params }) => {
     const [water, dryCoffee, brewedCoffee, brewRatio] = [params.water, params.dryCoffee, params.brewedCoffee, params.brewRatio];
+    const [checked, setChecked] = useState(false);
     const message = [{label: "Please provide inputs!", value: null}];
 
 
@@ -85,7 +86,7 @@ const Calculator = ({ target, params }) => {
                 {renderThis}
             </div>
             <label>Iced Coffee?</label>
-            <input type="checkbox" name="iced" value="iced"></input>
+            <input type="checkbox" name="iced" checked={checked} onChange={(e) => setChecked(e.value)}></input>
         </div>
     );
 };
