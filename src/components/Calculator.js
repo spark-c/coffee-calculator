@@ -80,8 +80,12 @@ const Calculator = ({ target, params }) => {
     });
 
     return (
-        <div className="bar calculator">
-            {renderThis}
+        <div>
+            <div className="bar calculator">
+                {renderThis}
+            </div>
+            <label>Iced Coffee?</label>
+            <input type="checkbox" name="iced" value="iced"></input>
         </div>
     );
 };
