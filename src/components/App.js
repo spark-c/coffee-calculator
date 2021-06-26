@@ -63,7 +63,7 @@ const App = () => {
         <div className="container">
             <TextBar label="Instructions" content={instructionsContent} />
             <Selector options={params} onTargetUpdate={setTargetParam} />
-            <div>Target: {targetParam.label}</div>
+            <div>Selected: {targetParam.label}</div>
             <VarBar params={params} onInputUpdate={onInputUpdate} target={targetParam} />
             <Calculator target={targetParam} params={params} />
         </div>
