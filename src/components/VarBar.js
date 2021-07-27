@@ -27,7 +27,13 @@ const VarBar = ({ params, target, onInputUpdate }) => {
     }
 
     const tabs = Object.entries(renderedInputs).map(param => {
-        return <VarItem param={param[1]} key={param[0]} onInputUpdate={onInputUpdate} drawInput={true} />
+        return (
+            <VarItem
+                param={param[1]}
+                key={param[0]}
+                onInputUpdate={onInputUpdate}
+                drawInput={true} />
+        );
     });
         
 

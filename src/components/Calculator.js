@@ -5,7 +5,9 @@ import React, { useState, useEffect } from 'react';
 
 
 const Calculator = ({ target, params }) => {
-    const [water, dryCoffee, brewedCoffee, brewRatio] = [params.water, params.dryCoffee, params.brewedCoffee, params.brewRatio];
+    const [water, dryCoffee, brewedCoffee, brewRatio] = (
+        [params.water, params.dryCoffee, params.brewedCoffee, params.brewRatio]
+    );
     const [checked, setChecked] = useState(false);
     const message = [{label: "Please provide inputs!", value: null}];
 
@@ -73,8 +75,13 @@ const Calculator = ({ target, params }) => {
     const getCalculationJsx = (value) => { // if the value is water and "Iced Coffee" is checked, calc water/ice ratio.
         return (
             (value.label === "Water Amount" && checked==true)?
-                <label className="result-value">{`Liquid: ${(value.value*.6).toFixed(2)} mL`}<br/>{`Ice: ${(value.value*.4).toFixed(2)} g`}</label>:
-                <label className="result-value">{`${value.value.toFixed(2) + value.unit}`}</label>
+                <label className="result-value">
+                    {`Liquid: ${(value.value*.6).toFixed(2)} mL`}<br/>
+                    {`Ice: ${(value.value*.4).toFixed(2)} g`}
+                </label>:
+                <label className="result-value">
+                    {`${value.value.toFixed(2) + value.unit}`}
+                </label>
         );
     };
 
@@ -82,9 +89,12 @@ const Calculator = ({ target, params }) => {
         return (
             value.value? 
             <div className="result" key={value.label}>
-                <label className="result-label">{`${value.label}:`}</label>
+                <label className="result-label">
+                    {`${value.label}:`}
+                </label>
                 {getCalculationJsx(value)}
-            </div> : value.label
+            </div>:
+            value.label
         );
     });
 
@@ -94,7 +104,12 @@ const Calculator = ({ target, params }) => {
                 {renderThis}
             </div>
             <label>Iced Coffee?</label>
-            <input type="checkbox" name="iced" checked={checked} onChange={(e) => setChecked(e.target.checked)}></input>
+            <input
+                type="checkbox"
+                name="iced"
+                checked={checked}
+                onChange={(e) => setChecked(e.target.checked)}>
+            </input>
         </div>
     );
 };

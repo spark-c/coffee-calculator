@@ -6,9 +6,7 @@ import Calculator from './Calculator';
 import './stylesheet.css';
 
 
-const instructionsContent = 
-    "Welcome to Coffee Calculator! " +
-    "Select the parameter you'd like to calculate, and enter the necessary variables."
+const instructionsContent = `Welcome to Coffee Calculator! Select the parameter you'd like to calculate, and enter the necessary variables. Values targeted for use in Hario V60 recipes. Don't forget to rinse your filter!`
 
     
 
@@ -64,7 +62,10 @@ const App = () => {
             <TextBar label="Instructions" content={instructionsContent} />
             <Selector options={params} onTargetUpdate={setTargetParam} />
             <div>Selected: {targetParam.label}</div>
-            <VarBar params={params} onInputUpdate={onInputUpdate} target={targetParam} />
+            <VarBar
+                params={params}
+                onInputUpdate={onInputUpdate}
+                target={targetParam} />
             <Calculator target={targetParam} params={params} />
         </div>
     );
