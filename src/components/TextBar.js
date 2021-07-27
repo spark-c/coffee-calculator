@@ -6,7 +6,7 @@ const TextBar = ({ label, content }) => {
     return (
         <div className="bar">
             <h3>{label}</h3>
-            <p>{content}</p>
+            {content}
         </div>
     );
 };

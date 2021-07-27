@@ -1,6 +1,7 @@
 import React from 'react';
-import VarItem from './VarItem';
 
+import VarItem from './VarItem';
+import kettle from '../images/chalk_kettle_gray.png';
 
 
 const VarBar = ({ params, target, onInputUpdate }) => {
@@ -33,7 +34,9 @@ const VarBar = ({ params, target, onInputUpdate }) => {
 
     return (
         <div className="bar var-bar input-bar">
-            {tabs}
+            <div className="back" style={{backgroundImage: `url(${kettle})`}}>
+                {tabs}
+            </div>
         </div>
     );
 };

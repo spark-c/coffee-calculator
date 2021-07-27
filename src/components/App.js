@@ -6,9 +6,9 @@ import Calculator from './Calculator';
 import './stylesheet.css';
 
 
-const instructionsContent = 
-    "Welcome to Coffee Calculator! " +
-    "Select the parameter you'd like to calculate, and enter the necessary variables."
+const instructionsContent = (
+    <p> Welcome to Coffee Calculator! Select the parameter you'd like to calculate, and enter the necessary variables.</p>
+)
 
     
 

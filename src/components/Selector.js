@@ -1,5 +1,7 @@
 import React from 'react';
+
 import VarItem from './VarItem';
+import kettle from '../images/chalk_kettle_gray.png';
 
 
 const Selector = ({ options, onTargetUpdate }) => {
@@ -9,8 +11,12 @@ const Selector = ({ options, onTargetUpdate }) => {
     });
 
     return (
-        <div className="bar var-bar selector">
-            {buttons}
+        <div
+            className="selector back"
+            style={{backgroundImage: `url(${kettle})`}}>
+            <div className="buttons-container">
+                {buttons}
+            </div>
         </div>
     );
 };

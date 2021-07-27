@@ -23,7 +23,7 @@ const VarItem = ({ param, onTargetUpdate, onInputUpdate, drawInput }) => {
         <div className="var-item">
             <div className="var-item-label">
                 <label>{param.label}</label>
-                {drawInput? null:<button onClick={onButtonClick}>select</button>}
+                {drawInput? null:<button onClick={onButtonClick}>{param.label}</button>}
             </div>
             {inputDiv}
         </div>
