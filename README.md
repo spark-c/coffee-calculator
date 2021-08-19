@@ -1,5 +1,7 @@
 # Coffee-Calculator
 
+-Currently undergoing a big styling update-
+
 This is a small calculator app to aid with calculations for (Hario V60) pour-over coffee recipes.
 
 Select a target calculation to make by clicking one of the "select" buttons on the page ("Standard" by default).
