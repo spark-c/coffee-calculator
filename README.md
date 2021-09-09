@@ -1,6 +1,7 @@
 # Coffee-Calculator
 
 -Currently undergoing a big styling update-
+Current version deployed [here](https://coffee-calculator-nine.vercel.app)
 
 This is a small calculator app to aid with calculations for (Hario V60) pour-over coffee recipes.
 
