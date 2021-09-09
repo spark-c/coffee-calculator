@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 // some calculation references @ https://www.translatorscafe.com/unit-converter/en-US/calculator/coffee-brewing/
 
