@@ -60,12 +60,18 @@ const App = () => {
     return (
         <div className="container">
             <TextBar label="Instructions" content={instructionsContent} />
+
+            <h3 className="bar-label">Value to calculate:</h3>
             <Selector options={params} onTargetUpdate={setTargetParam} />
             <div>Selected: {targetParam.label}</div>
+            
+            <h3 className="bar-label">Required variables:</h3>
             <VarBar
                 params={params}
                 onInputUpdate={onInputUpdate}
                 target={targetParam} />
+
+            <h3 className="bar-label">Result:</h3>
             <Calculator target={targetParam} params={params} />
         </div>
     );
